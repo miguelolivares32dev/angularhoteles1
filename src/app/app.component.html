@@ -1,0 +1,302 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+ .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+    }
+
+    .filters {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+
+    .filter-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-group label {
+      display: block;
+      color: white;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    input[type="text"]:focus {
+      outline: 3px solid rgba(255,255,255,0.5);
+    }
+
+    .stars-filter {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .star-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .star-checkbox:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+
+    .star-checkbox input[type="checkbox"] {
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+    }
+
+    .star-checkbox .stars {
+      font-size: 1rem;
+    }
+
+    .clear-btn {
+      background: white;
+      color: #667eea;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .clear-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .results {
+      margin-top: 2rem;
+    }
+
+    .result-count {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .hotel-card {
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .hotel-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+    }
+
+    .hotel-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .hotel-info {
+      padding: 1.5rem;
+    }
+
+    .hotel-info h3 {
+      margin: 0 0 0.5rem 0;
+      color: #333;
+      font-size: 1.3rem;
+    }
+
+    .hotel-info .stars {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .location {
+      color: #666;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .price {
+      color: #667eea;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin: 1rem 0;
+    }
+
+    .book-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .book-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem;
+      color: #666;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .filters {
+        padding: 1.5rem;
+      }
+
+      .stars-filter {
+        flex-direction: column;
+      }
+
+      .hotel-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+</style>
+
+<main class="main">
+   <div class="container">
+      <h1>Buscador de Hoteles</h1>
+      
+      <div class="filters">
+        <div class="filter-group">
+          <label for="search">Buscar Hotel:</label>
+          <input 
+            type="text" 
+            id="search"
+            [(ngModel)]="searchText" 
+            (ngModelChange)="applyFilters()"
+            placeholder="Nombre del hotel..."
+          />
+        </div>
+
+        <div class="filter-group">
+          <label>Estrellas:</label>
+          <div class="stars-filter">
+            @for (star of [1, 2, 3, 4, 5]; track star) {
+              <label class="star-checkbox">
+                <input 
+                  type="checkbox" 
+                  [value]="star"
+                  (change)="toggleStar(star)"
+                  [checked]="selectedStars.includes(star)"
+                />
+                <span class="stars">
+                  @for (s of getStarArray(star); track s) {
+                    ⭐
+                  }
+                </span>
+              </label>
+            }
+          </div>
+        </div>
+
+        <button class="clear-btn" (click)="clearFilters()">
+          Limpiar Filtros
+        </button>
+      </div>
+
+      <div class="results">
+        <p class="result-count">
+          {{ filteredHotels.length }} hoteles encontrados
+        </p>
+
+        <div class="hotel-grid">
+          @for (hotel of filteredHotels; track hotel.id) {
+            <div class="hotel-card">
+              <img [src]="hotel.image" [alt]="hotel.name" />
+              <div class="hotel-info">
+                <h3>{{ hotel.name }}</h3>
+                <div class="stars">
+                  @for (star of getStarArray(hotel.stars); track star) {
+                    ⭐
+                  }
+                </div>
+                <p class="location">📍 {{ hotel.location }}</p>
+                <p class="price">{{ hotel.price }}€ / noche</p>
+                <button class="book-btn">Reservar</button>
+              </div>
+            </div>
+          } @empty {
+            <div class="no-results">
+              <p>No se encontraron hoteles con los filtros seleccionados</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+    
+</main>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<router-outlet />
